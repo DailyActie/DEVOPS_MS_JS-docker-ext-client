@@ -19,5 +19,19 @@ Ext.define('Client.view.users.Users', {
         type: 'users'
     },
 
+    items: [{
+        docked: 'top',
+        xtype: 'toolbar',
+        items: [{
+            xtype: 'button',
+            text: 'Add',
+            handler: 'onAdd'
+        }]
+    }],
+
+    listeners: {
+        itemtap: 'onSelect'
+    },
+
     itemTpl: '{first_name} {last_name} - {email}'
 });

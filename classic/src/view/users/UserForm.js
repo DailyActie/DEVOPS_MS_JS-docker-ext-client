@@ -42,13 +42,15 @@ Ext.define('Client.view.users.UserForm', {
         buttons: [{
             xtype: 'button',
             text: 'Save',
-            handler: 'onSubmit'
+            handler: 'beforeSubmit'
         }]
     }],
 
     updateRecord: function(rec){
-        form = this.down('form');
-        form.loadRecord(rec);
+        if(rec){
+            form = this.down('form');
+            form.loadRecord(rec);
+        }
     }
 
 });

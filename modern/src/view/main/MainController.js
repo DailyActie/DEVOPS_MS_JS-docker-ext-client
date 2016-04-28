@@ -13,5 +13,10 @@ Ext.define('Client.view.main.MainController', {
             xtype: 'login',
             fullscreen: true
         });
+    },
+
+    onBack: function(btn){
+        Ext.ComponentQuery.query('#users')[0].setActiveItem(0);
+        btn.hide();
     }
 });

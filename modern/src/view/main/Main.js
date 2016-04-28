@@ -13,18 +13,9 @@ Ext.define('Client.view.main.Main', {
         'Client.view.main.MainController',
         'Client.view.main.MainModel',
         'Client.view.users.Users',
+        'Client.view.users.UserForm',
         'Ext.TitleBar'
     ],
-    /*
-    var loggedIn = false;
-    if(typeof(Storage) !== "undefined") {
-        loggedIn = localStorage.getItem("token");
-    }
-
-    Ext.Viewport.add({
-        xtype: loggedIn ? 'app-main' : 'login'
-    });
-    */
 
     controller: 'main',
     viewModel: 'main',
@@ -45,18 +36,29 @@ Ext.define('Client.view.main.Main', {
             docked: 'top',
             items: [
                 {
-                    text: 'logout',
+                    text: 'Back',
+                    handler: 'onBack',
+                    hidden: true,
+                    reference: 'backbtn',
+                    align: 'left'
+                },
+                {
+                    text: 'Logout',
                     handler: 'onLogout',
                     align: 'right'
                 }
             ]
-
         },
         {
             title: 'Users',
             iconCls: 'x-fa fa-user',
-            items: [{
+            layout: 'card',
+            itemId: 'users',
+            items: [
+            {
                 xtype: 'userlist'
+            }, {
+                xtype: 'userform'
             }]
         }
     ]
