@@ -12,10 +12,9 @@ Ext.define('Client.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
-
         'Client.view.main.MainController',
         'Client.view.main.MainModel',
-        'Client.view.main.List'
+        'Client.view.users.Users'
     ],
 
     tbar: [
@@ -89,7 +88,7 @@ Ext.define('Client.view.main.Main', {
         title: 'Users',
         iconCls: 'fa-user',
         items: [{
-            xtype: 'mainlist'
+            xtype: 'userlist'
         }]
     }]
 });

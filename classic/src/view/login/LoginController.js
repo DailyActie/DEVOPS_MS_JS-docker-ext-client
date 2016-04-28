@@ -16,6 +16,6 @@ Ext.define('Client.view.login.LoginController', {
 
         var login = Ext.ComponentQuery.query('login')[0];
         login.destroy();
-    },
+    }
 
 });

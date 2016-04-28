@@ -1,13 +1,17 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('Client.view.main.List', {
+Ext.define('Client.view.users.Users', {
     extend: 'Ext.dataview.List',
-    xtype: 'mainlist',
+    xtype: 'userlist',
 
     requires: [
-        'Client.store.Users'
+        'Client.store.Users',
+        'Client.view.users.UsersController'
     ],
+
+    controller: 'users',
+
 
     title: 'Users',
 

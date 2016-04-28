@@ -1,4 +1,3 @@
-
 Ext.define('Client.view.login.Login',{
     extend: 'Ext.container.Container',
     xtype: 'login',

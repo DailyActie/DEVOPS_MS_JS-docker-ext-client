@@ -12,7 +12,7 @@ Ext.define('Client.view.main.Main', {
     requires: [
         'Client.view.main.MainController',
         'Client.view.main.MainModel',
-        'Client.view.main.List',
+        'Client.view.users.Users',
         'Ext.TitleBar'
     ],
     /*
@@ -56,7 +56,7 @@ Ext.define('Client.view.main.Main', {
             title: 'Users',
             iconCls: 'x-fa fa-user',
             items: [{
-                xtype: 'mainlist'
+                xtype: 'userlist'
             }]
         }
     ]
