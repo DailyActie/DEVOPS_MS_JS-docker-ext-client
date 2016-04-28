@@ -10,12 +10,21 @@ Ext.define('Client.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.MessageBox',
-
         'Client.view.main.MainController',
         'Client.view.main.MainModel',
-        'Client.view.main.List'
+        'Client.view.main.List',
+        'Ext.TitleBar'
     ],
+    /*
+    var loggedIn = false;
+    if(typeof(Storage) !== "undefined") {
+        loggedIn = localStorage.getItem("token");
+    }
+
+    Ext.Viewport.add({
+        xtype: loggedIn ? 'app-main' : 'login'
+    });
+    */
 
     controller: 'main',
     viewModel: 'main',
@@ -31,31 +40,24 @@ Ext.define('Client.view.main.Main', {
 
     items: [
         {
-            title: 'Home',
-            iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
+            xtype: 'titlebar',
+            title: 'Users',
+            docked: 'top',
+            items: [
+                {
+                    text: 'logout',
+                    handler: 'onLogout',
+                    align: 'right'
+                }
+            ]
+
+        },
+        {
+            title: 'Users',
+            iconCls: 'x-fa fa-user',
             items: [{
                 xtype: 'mainlist'
             }]
-        },{
-            title: 'Users',
-            iconCls: 'x-fa fa-user',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Groups',
-            iconCls: 'x-fa fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Settings',
-            iconCls: 'x-fa fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
         }
     ]
 });

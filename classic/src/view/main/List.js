@@ -6,22 +6,19 @@ Ext.define('Client.view.main.List', {
     xtype: 'mainlist',
 
     requires: [
-        'Client.store.Personnel'
+        'Client.store.Users'
     ],
 
-    title: 'Personnel',
+    title: 'Users',
 
     store: {
-        type: 'personnel'
+        type: 'users'
     },
 
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone', flex: 1 }
-    ],
+        { text: 'First Name',  dataIndex: 'first_name', flex: 1 },
+        { text: 'Last Name', dataIndex: 'last_name', flex: 1 },
+        { text: 'Email', dataIndex: 'email', flex: 2 }
+    ]
 
-    listeners: {
-        select: 'onItemSelected'
-    }
 });
