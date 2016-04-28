@@ -9,6 +9,8 @@ Ext.define('Client.view.login.Login',{
 
     controller: 'login-login',
 
+    cls: 'loginform',
+
     autoShow: true,
     draggable: false,
     resizable: false,

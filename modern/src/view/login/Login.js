@@ -9,6 +9,8 @@ Ext.define('Client.view.login.Login',{
 
     controller: 'login-login',
 
+    cls: 'loginform',
+
     layout: {
         type: 'vbox',
         pack: 'center'
