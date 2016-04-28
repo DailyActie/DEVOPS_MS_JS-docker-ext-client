@@ -6,11 +6,6 @@ Ext.define('Client.view.users.UsersControllerShared', {
         me.createForm("Add User");
     },
 
-    onDelete: function(grid, rowIndex, colIndex, item, event, record){
-        var me = this;
-        me.onRemove(record);
-    },
-
     onEdit: function(rowModel, rec){
         var me = this;
         me.createForm("Edit User", rec);

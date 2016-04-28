@@ -2,6 +2,11 @@ Ext.define('Client.view.users.UsersController', {
     extend: 'Client.view.users.UsersControllerShared',
     alias: 'controller.users',
 
+    onDelete: function(grid, rowIndex, colIndex, item, event, record){
+        var me = this;
+        me.onRemove(record);
+    },
+
     createForm: function(title, data){
         var form = Ext.create('Client.view.users.UserForm', {
             title: title

@@ -10,7 +10,7 @@ Ext.define('Client.view.users.UserForm', {
 
     controller: 'users',
 
-    renderConfig: {
+    config: {
         record: null
     },
 

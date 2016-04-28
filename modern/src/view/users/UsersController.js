@@ -2,9 +2,22 @@ Ext.define('Client.view.users.UsersController', {
     extend: 'Client.view.users.UsersControllerShared',
     alias: 'controller.users',
 
+    createForm: function(title){
+        this.getView().up('app-main').lookupReference('backbtn').show();
+        this.getView().up('#users').setActiveItem(1);
+        Ext.ComponentQuery.query('userform')[0].setRecord(null);
+        Ext.ComponentQuery.query('userform')[0].reset();
+    },
+
+    onDelete: function(record){
+        var me = this;
+        me.onRemove(record);
+    },
+
     onSelect: function(list, i, target, rec){
         this.getView().up('app-main').lookupReference('backbtn').show();
         this.getView().up('#users').setActiveItem(1);
+        Ext.ComponentQuery.query('userform')[0].setRecord(rec);
     },
 
     beforeSubmit: function(btn) {
