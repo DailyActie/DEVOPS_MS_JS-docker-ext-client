@@ -10,9 +10,12 @@ Ext.define('Client.Application', {
     stores: ['Users'],
 
     launch: function () {
-        var loggedIn = false;
-        if(typeof(Storage) !== "undefined") {
-            loggedIn = localStorage.getItem("token");
+        var loggedIn = Client.utils.Constants.DISABLE_TOKEN;
+
+        if(!Client.utils.Constants.DISABLE_TOKEN){
+            if (typeof(Storage) !== "undefined") {
+                loggedIn = localStorage.getItem("token");
+            }
         }
 
         Ext.Viewport.add({

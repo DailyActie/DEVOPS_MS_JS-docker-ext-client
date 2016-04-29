@@ -67,13 +67,13 @@ Ext.define('Client.view.users.UsersController', {
         }
 
         var token = null;
-        if (typeof(Storage) !== "undefined") {
-            token = localStorage.getItem("token");
-            submission.token = token
+        if(!Client.utils.Constants.DISABLE_TOKEN){
+            if (typeof(Storage) !== "undefined") {
+                token = localStorage.getItem("token");
+                if (!token) Ext.Msg.alert('Oops', "You will need to be logged in.");
+            }
         }
-
-        if (!token) Ext.Msg.alert('Oops', "You will need to be logged in.");
-
+        
         me.onSubmit(submission);
     }
 });
