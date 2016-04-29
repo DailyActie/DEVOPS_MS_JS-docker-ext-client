@@ -60,19 +60,19 @@ Ext.define('Client.view.users.UsersController', {
         } else {
             submission.url = '/users/';
             //<debug>
-            submission.url = 'http://localhost:8080/users/';
+            submission.url = Client.utils.Constants.LIVE_URL + '/users/';
             //</debug>
             submission.method = 'POST';
             submission.successMsg = " was created.";
         }
 
         var token = null;
-        if (typeof(Storage) !== "undefined") {
-            token = localStorage.getItem("token");
-            submission.token = token
+        if(!Client.utils.Constants.DISABLE_TOKEN){
+            if (typeof(Storage) !== "undefined") {
+                submission.token = localStorage.getItem("token");
+                if (!submission.token) Ext.Msg.alert('Oops', "You will need to be logged in.");
+            }
         }
-
-        if (!token) Ext.Msg.alert('Oops', "You will need to be logged in.");
 
         me.onSubmit(submission);
     }

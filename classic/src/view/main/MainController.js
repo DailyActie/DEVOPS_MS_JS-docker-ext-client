@@ -11,7 +11,7 @@ Ext.define('Client.view.main.MainController', {
         Ext.create('Client.view.login.Login');
     },
 
-    getMeta: function(submission) {
+    /*getMeta: function(submission) {
         if(typeof(Storage) !== "undefined") {
             var token = localStorage.getItem("token");
         }
@@ -30,5 +30,5 @@ Ext.define('Client.view.main.MainController', {
                 console.error(response);
             }
         });
-    }
+    }*/
 });

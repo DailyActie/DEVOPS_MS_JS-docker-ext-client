@@ -7,9 +7,12 @@ Ext.define('Client.Application', {
     ],
 
     launch: function () {
-        var loggedIn = false;
-        if(typeof(Storage) !== "undefined") {
-            loggedIn = localStorage.getItem("token");
+        var loggedIn = Client.utils.Constants.DISABLE_TOKEN;
+
+        if(!Client.utils.Constants.DISABLE_TOKEN){
+            if (typeof(Storage) !== "undefined") {
+                loggedIn = localStorage.getItem("token");
+            }
         }
 
         Ext.create({
