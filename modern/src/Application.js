@@ -9,8 +9,6 @@ Ext.define('Client.Application', {
 
     stores: ['Users'],
 
-    //mainView: 'Client.view.login.Login'
-
     launch: function () {
         var loggedIn = false;
         if(typeof(Storage) !== "undefined") {

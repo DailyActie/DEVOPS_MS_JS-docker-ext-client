@@ -18,6 +18,11 @@ Ext.define('Client.view.main.Main', {
     ],
 
     tbar: [
+    {
+        xtype: 'button',
+        text: 'Test',
+        handler: 'getMeta'
+    },
     '->',
     {
         xtype: 'button',
