@@ -3,21 +3,31 @@ Ext.define('Client.view.users.UsersController', {
     alias: 'controller.users',
 
     createForm: function(title){
+        var form = Ext.ComponentQuery.query('userform')[0];
+        form.down('#delbar').hide();
         this.getView().up('app-main').lookupReference('backbtn').show();
         this.getView().up('#users').setActiveItem(1);
-        Ext.ComponentQuery.query('userform')[0].setRecord(null);
-        Ext.ComponentQuery.query('userform')[0].reset();
+        form.setRecord(null);
+        form.reset();
     },
 
-    onDelete: function(record){
+    onDelete: function(btn){
         var me = this;
-        me.onRemove(record);
+        var record = btn.up('userform').getRecord();
+        if(record) me.onRemove(record, function(){
+            var form = Ext.ComponentQuery.query('userform')[0];
+            form.setRecord(null);
+            form.reset();
+            btn.up('#users').setActiveItem(0);
+        });
     },
 
     onSelect: function(list, i, target, rec){
         this.getView().up('app-main').lookupReference('backbtn').show();
         this.getView().up('#users').setActiveItem(1);
-        Ext.ComponentQuery.query('userform')[0].setRecord(rec);
+        var form = Ext.ComponentQuery.query('userform')[0];
+        form.setRecord(rec);
+        form.down('#delbar').show();
     },
 
     beforeSubmit: function(btn) {
@@ -31,8 +41,7 @@ Ext.define('Client.view.users.UsersController', {
                 var result = Ext.decode(response.responseText);
                 Ext.Msg.alert('Alright!', "User " + result.username + submission.successMsg);
                 Ext.getStore('Users').load();
-                Ext.ComponentQuery.query('userform')[0].reset()
-                me.getView().destroy();
+                Ext.ComponentQuery.query('userform')[0].reset();
             },
             submission.failure = function(response){
                 var result = Ext.decode(response.responseText);

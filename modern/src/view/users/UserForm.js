@@ -17,6 +17,7 @@ Ext.define('Client.view.users.UserForm', {
     items: [
     {
         xtype: 'toolbar',
+        itemId: 'delbar',
         hidden: true,
         docked: 'top',
         items: [{

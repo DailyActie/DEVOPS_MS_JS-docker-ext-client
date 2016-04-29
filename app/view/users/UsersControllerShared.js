@@ -24,7 +24,7 @@ Ext.define('Client.view.users.UsersControllerShared', {
         });
     },
 
-    onRemove: function(rec) {
+    onRemove: function(rec, cb) {
         var me = this;
 
         console.log(rec);
@@ -45,6 +45,7 @@ Ext.define('Client.view.users.UsersControllerShared', {
             success: function(response){
                 Ext.Msg.alert('Alright!', "User was removed.");
                 Ext.getStore('Users').load();
+                if(cb) cb();
             },
             failure: function(response){
                 var result = Ext.decode(response.responseText);
