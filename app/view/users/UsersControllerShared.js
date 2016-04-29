@@ -26,10 +26,14 @@ Ext.define('Client.view.users.UsersControllerShared', {
 
     onRemove: function(rec, cb) {
         var me = this;
+        //console.log(rec);
 
+<<<<<<< HEAD
         //console.log(rec);
 
         var token = null;
+=======
+>>>>>>> 7bae75df0cfefafc058e3c2ff362bd2bb1d16f96
         if(!Client.utils.Constants.DISABLE_TOKEN){
             if (typeof(Storage) !== "undefined") {
                 token = localStorage.getItem("token");

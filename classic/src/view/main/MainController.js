@@ -21,7 +21,7 @@ Ext.define('Client.view.main.MainController', {
                 "Authorization": token
             },
             method: 'OPTIONS',
-            url: 'http://127.0.0.1:8080/users/',
+            url: Client.utils.Constants.LIVE_URL + '/users/',
             success: function(response){
                 //console.log(response);
                 console.log(Ext.decode(response.responseText));
