@@ -60,7 +60,7 @@ Ext.define('Client.view.users.UsersController', {
         } else {
             submission.url = '/users/';
             //<debug>
-            submission.url = 'http://localhost:8080/users/';
+            submission.url = Client.utils.Constants.LIVE_URL + '/users/';
             //</debug>
             submission.method = 'POST';
             submission.successMsg = " was created.";

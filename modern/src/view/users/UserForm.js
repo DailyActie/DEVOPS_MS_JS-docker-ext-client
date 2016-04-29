@@ -50,7 +50,7 @@ Ext.define('Client.view.users.UserForm', {
         }, {
             label: 'Username',
             name: 'username'
-        }],
+        }]
     }, {
         xtype: 'button',
         margin: '10 0',

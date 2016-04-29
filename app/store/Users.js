@@ -4,18 +4,8 @@ Ext.define('Client.store.Users', {
     alias: 'store.users',
     storeId: 'Users',
 
-    fields: [
-        'first_name', 'last_name', 'email'
-    ],
+    requires: ['Client.model.User'],
+    model: 'Client.model.User',
 
-    autoLoad: false,
-
-    proxy: {
-        type: 'ajax',
-        url: 'http://localhost:8080/users/?format=json',
-        reader: {
-            type: 'json',
-            rootProperty: ''
-        }
-    }
+    autoLoad: false
 });
