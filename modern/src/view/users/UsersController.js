@@ -69,11 +69,27 @@ Ext.define('Client.view.users.UsersController', {
         var token = null;
         if(!Client.utils.Constants.DISABLE_TOKEN){
             if (typeof(Storage) !== "undefined") {
+<<<<<<< HEAD
                 submission.token = localStorage.getItem("token");
                 if (!submission.token) Ext.Msg.alert('Oops', "You will need to be logged in.");
             }
         }
 
+=======
+<<<<<<< HEAD
+                submission.token = localStorage.getItem("token");
+                if (!submission.token) Ext.Msg.alert('Oops', "You will need to be logged in.");
+            }
+        }
+
+=======
+                token = localStorage.getItem("token");
+                if (!token) Ext.Msg.alert('Oops', "You will need to be logged in.");
+            }
+        }
+        
+>>>>>>> 7bae75df0cfefafc058e3c2ff362bd2bb1d16f96
+>>>>>>> 11bb54c1961b0c9deba22f819071924d26ec3e04
         me.onSubmit(submission);
     }
 });
