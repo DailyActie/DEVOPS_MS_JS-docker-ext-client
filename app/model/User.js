@@ -1,6 +1,6 @@
 Ext.define('Client.model.User', {
     extend: 'Ext.data.Model',
-
+    requires: ['Client.utils.Constants'],
     fields: [
         '_id',
         'first_name',
@@ -14,7 +14,9 @@ Ext.define('Client.model.User', {
                 }
             },
             depends: ['_id']
-        }
+        },
+        'username',
+        'password'
     ],
     schema: {}
 }, function(m){

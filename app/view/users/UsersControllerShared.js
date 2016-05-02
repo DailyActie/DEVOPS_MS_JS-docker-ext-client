@@ -12,6 +12,7 @@ Ext.define('Client.view.users.UsersControllerShared', {
     },
 
     onSubmit: function(submission) {
+        console.log(submission.token);
         Ext.Ajax.request({
             headers: {
                 "Authorization": submission.token
@@ -28,6 +29,7 @@ Ext.define('Client.view.users.UsersControllerShared', {
         var me = this;
         //console.log(rec);
 
+        var token = "";
         if(!Client.utils.Constants.DISABLE_TOKEN){
             if (typeof(Storage) !== "undefined") {
                 token = localStorage.getItem("token");
