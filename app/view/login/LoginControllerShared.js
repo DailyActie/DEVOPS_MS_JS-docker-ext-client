@@ -11,8 +11,16 @@ Ext.define('Client.view.login.LoginControllerShared', {
                 var text = response.responseText;
                 var data = Ext.decode(text, true);
 
-                me.saveToken("JWT " + data.token);
-                me.createInterface();
+                if(data.token){
+                    me.saveToken(data.token);
+                    me.createInterface();
+                } else {
+                    if(data.message){
+                        Ext.Msg.alert("Bummer", data.message);
+                    } else {
+                        Ext.Msg.alert("Bummer", "Something went wrong.");
+                    }
+                }
             },
             failure: function(response){
                 var text = response.responseText;
