@@ -38,6 +38,10 @@ Ext.define('Client.view.users.UserForm', {
         },{
             fieldLabel: 'Username',
             name: 'username'
+        }, {
+            fieldLabel: 'Password',
+            name: 'password',
+            inputType: 'password'
         }],
         buttons: [{
             xtype: 'button',

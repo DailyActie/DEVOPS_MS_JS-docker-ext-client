@@ -26,10 +26,16 @@ Ext.define('Client.view.users.UsersController', {
             submission.token = "",
             submission.success = function(response){
                 var result = Ext.decode(response.responseText);
-                Ext.Msg.alert('Alright!', "User " + result.username + submission.successMsg);
-                Ext.getStore('Users').load();
-                form.reset();
-                me.getView().destroy();
+
+                if (result.success == false){
+                    var err = result.message.errmsg;
+                    Ext.Msg.alert('Alright!', err);
+                } else {
+                    Ext.Msg.alert('Alright!', "User " + result.username + submission.successMsg);
+                    Ext.getStore('Users').load();
+                    form.reset();
+                    me.getView().destroy();
+                }
             },
             submission.failure = function(response){
                 var result = Ext.decode(response.responseText);
@@ -43,6 +49,7 @@ Ext.define('Client.view.users.UsersController', {
 
         if (submission.url) {
             submission.url = submission.url;
+            submission.values.url = submission.url;
             submission.method = 'PUT';
             submission.successMsg = " is modified.";
         } else {
@@ -50,6 +57,8 @@ Ext.define('Client.view.users.UsersController', {
             //<debug>
             submission.url = Client.utils.Constants.LIVE_URL + '/users/';
             //</debug>
+
+            submission.values.url = submission.url;
             submission.method = 'POST';
             submission.successMsg = " was created.";
         }
@@ -58,24 +67,10 @@ Ext.define('Client.view.users.UsersController', {
             var token = null;
             if(!Client.utils.Constants.DISABLE_TOKEN){
                 if (typeof(Storage) !== "undefined") {
-<<<<<<< HEAD
-                    submission.token = localStorage.getItem("token");
-                    if (!submission.token) Ext.Msg.alert('Oops', "You will need to be logged in.");
-=======
-<<<<<<< HEAD
                     submission.token = localStorage.getItem("token");
                     if (!submission.token) Ext.Msg.alert('Oops', "You will need to be logged in.");
                 }
             }
-            submission.token = token
-
-=======
-                    token = localStorage.getItem("token");
-                    if (!token) Ext.Msg.alert('Oops', "You will need to be logged in.");
->>>>>>> 11bb54c1961b0c9deba22f819071924d26ec3e04
-                }
-            }
->>>>>>> 7bae75df0cfefafc058e3c2ff362bd2bb1d16f96
             me.onSubmit(submission);
         } else {
             Ext.Msg.alert('Oops', "Something went wrong.");

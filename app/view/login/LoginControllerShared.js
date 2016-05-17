@@ -42,7 +42,7 @@ Ext.define('Client.view.login.LoginControllerShared', {
         //</debug>
         var me = this;
         if(typeof(Storage) !== "undefined") {
-            localStorage.setItem("token", token);
+            localStorage.setItem("token", Client.utils.Constants.TOKEN_PREFIX + token);
         }
     }
 
