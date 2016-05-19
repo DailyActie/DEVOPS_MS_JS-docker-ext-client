@@ -53,10 +53,7 @@ Ext.define('Client.view.users.UsersController', {
             submission.method = 'PUT';
             submission.successMsg = " is modified.";
         } else {
-            submission.url = '/users/';
-            //<debug>
             submission.url = Client.utils.Constants.LIVE_URL + '/users/';
-            //</debug>
 
             submission.values.url = submission.url;
             submission.method = 'POST';
