@@ -172,7 +172,7 @@ Thumbs.db
 
 temp/
 build/
-!build/production/Client
+!build/production/Client/
 touch/
 dist/
 .sencha_backup/
