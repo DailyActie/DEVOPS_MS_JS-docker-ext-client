@@ -18,9 +18,9 @@ The code can be found here:
 https://github.com/savelee/docker-node-server
 Run with `$ nodemon app.js`
 
-To create an admin account, use Curl:
+To create an admin account, use Curl or Postman:
 
-` > curl -H "Content-Type: application/json" -X POST  -d '{ "username" : "admin", "password": "admin" }' http://127.0.0.1:9000/register`
+` $ curl -H "Content-Type: application/json" -X POST  -d '{ "username" : "admin", "password": "admin" }' http://127.0.0.1:9000/register`
 
 We will use this client:
 https://github.com/savelee/docker-ext-client
