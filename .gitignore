@@ -171,6 +171,8 @@ Thumbs.db
 #ext #we check in the gpl this time
 
 temp/
+build/
+!build/production/Client
 touch/
 dist/
 .sencha_backup/
