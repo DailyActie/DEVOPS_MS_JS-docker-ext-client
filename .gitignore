@@ -174,6 +174,8 @@ temp/
 build/development/
 build/testing/
 ext/build/
+ext/templates
+ext/examples
 touch/
 dist/
 .sencha_backup/
