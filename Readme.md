@@ -26,7 +26,7 @@ We will use this client:
 https://github.com/savelee/docker-ext-client
 
 You will need to edit the *app/utils/Contants.js* file to:
-<pre>
+```javascript
 Ext.define('Client.utils.Constants', {
     singleton: true,
 
@@ -35,7 +35,7 @@ Ext.define('Client.utils.Constants', {
     'TOKEN_PREFIX': '',
     'DISABLE_TOKEN': false
 });
-</pre>
+```
 
 Then you can start the Ext JS app locally with:
 `$ sencha app watch`
@@ -48,7 +48,7 @@ First make an Ext JS build:
 
 Create a *docker-compose.yml*
 
-<pre>
+```yml
 client:
     build: ./client
     restart: always
@@ -69,4 +69,4 @@ mongo:
   restart: always
   ports:
     - "27017:27017"
-</pre>
+```

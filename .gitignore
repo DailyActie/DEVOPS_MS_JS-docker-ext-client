@@ -177,7 +177,7 @@ ext/build/
 touch/
 dist/
 .sencha_backup/
-.sencha
+#.sencha
 *slicer-temp*
 gwt-unitCache
 .sass-cache/
