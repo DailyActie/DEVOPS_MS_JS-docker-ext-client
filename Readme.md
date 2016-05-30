@@ -70,3 +70,21 @@ mongo:
   ports:
     - "27017:27017"
 ```
+
+# Do you want to run this Sencha client app locally?
+
+1. Remove the following files/folders: *ext*, *.sencha*, *workspace.json*
+
+2. Navigate to a folder on your hd which contains the sencha framework, and re-generate the project:
+
+`$ sencha generate app --starter=false Client [path-to-client-app]`
+
+3. Navigate to your client app on the CLI, and run app watch:
+
+`$ sencha app watch`
+
+http://127.0.0.1/:1841
+
+4. To create an admin account, use Curl or Postman:
+
+` $ curl -H "Content-Type: application/json" -X POST  -d '{ "username" : "admin", "password": "admin" }' http://127.0.0.1:9000/register
